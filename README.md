@@ -1,6 +1,6 @@
 Malcolm's Dockers
 =====================
-<div style="text-align:center"><img src ="./logos/malkam03.png" /><img src ="./logos/docker.png" /></div>
+<div align="center"><img src ="./logos/malkam03.png" /><img src ="./logos/docker.png" /></div>
 This repository aims to log some of the data of some of the dockers I made for different projects.
 Each docker has his own directory.
 
@@ -26,7 +26,7 @@ sudo apt-get install docker-ce # To install docker
 ```
 ## Dockers
 ### Haxedevelop
-<div style="text-align:center"><img src ="./logos/haxe-logo.png" height="20%vh" width="50%vw"/></div>
+<div align="center"><img src ="./logos/haxe-logo.png" height="20%vh" width="50%vw"/></div>
 This docker can be downloaded with:
 ```
 docker pull malkam03/haxedevelop
