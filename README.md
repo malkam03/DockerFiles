@@ -39,9 +39,9 @@ nano ~/.bashrc # To edit the bashrc file
 
 Add the following lines on the file:
 ```
-alias dhaxe='sudo docker run --name dhaxe --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe haxedevelop:latest haxe'
-alias dhaxelib='sudo docker run --name dhaxelib --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe haxedevelop:latest haxelib'
-alias dhaxecompile='sudo docker run --name dhaxelib --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe haxedevelop:latest haxelib run nme build "$(find . -name *.nmml)"'
+alias dhaxe='sudo docker run --name dhaxe --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe malkam03/haxedevelop:latest haxe'
+alias dhaxelib='sudo docker run --name dhaxelib --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe malkam03/haxedevelop:latest haxelib'
+alias dhaxecompile='sudo docker run --name dhaxelib --rm -v "$(pwd)":/tmp/haxe -w /tmp/haxe malkam03/haxedevelop:latest haxelib run nme build "$(find . -name *.nmml)"'
 alias androidupload='$ANDROID_HOME/platform-tools/adb -d install -r $(find . -name *debug.apk)'
 ```
 Lastly reload the aliases:
