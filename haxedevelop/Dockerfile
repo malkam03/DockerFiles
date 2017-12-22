@@ -4,7 +4,8 @@ MAINTAINER Malcolm Davis <me@malcolmdavis.xyz>
 RUN add-apt-repository ppa:webupd8team/java -y && apt-get update
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | debconf-set-selections && apt-get install -y oracle-java8-installer && apt-get install -y oracle-java8-set-default
 # Dependencies
-RUN haxelib install nme 5.7.1 && haxelib install actuate 1.8.7 && haxelib install lime 5.4.0&& haxelib run nme setup && haxelib run lime setup -y && apt-get install unzip -y
+RUN apt-get install sudo
+RUN haxelib install nme 5.7.1 && haxelib install actuate 1.8.7 && haxelib install lime 5.4.0 && haxelib run nme setup && haxelib run lime setup -y && apt-get install unzip -y
 ######## Android Tools ########
 # Android SDK
 RUN wget http://dl.google.com/android/android-sdk_r24.2-linux.tgz && tar -xvf android-sdk_r24.2-linux.tgz -C ~ && rm -f android-sdk_r24.2-linux.tgz &&  echo "export ANDROID_HOME=~/android-sdk-linux/" >> ~/.bashrc
@@ -21,7 +22,7 @@ RUN printf "# JAVA Path\nexport JAVA_HOME=/usr/lib/jvm/java-8-oracle/\n# ANDROID
 RUN printf  "n\nn\nn\n~/android-sdk-linux/\n/opt/android-ndk-r14b\n/usr/lib/jvm/java-8-oracle/\n" | lime setup android
 RUN printf "<xml>\n<section id=\"vars\">\n		<set name=\"ANDROID_SETUP\" value=\"true\" />\n		<set name=\"ANDROID_NDK_ROOT\" value=\"/opt/android-ndk-r14b/\" />\n		<set name=\"ANDROID_SDK\" value=\"/root/android-sdk-linux/\" />\n		<set name=\"ANT_HOME\" value=\"/usr/local/apache-ant-1.9.2/\" />\n		<set name=\"JAVA_HOME\" value=\"/usr/lib/jvm/java-8-oracle/jre/bin/java\" />\n	</section>\n</xml>" >  ~/.hxcpp_config.xml
 # NME
-RUN haxelib remove hxcpp && haxelib install hxcpp 3.4.64 && echo "y" | haxelib set hxcpp 3.4.64 && apt-get install -y lib32z1 lib32ncurses5 lib32bz2-1.0
+RUN haxelib remove hxcpp && haxelib install hxcpp 3.4.64 && echo "y" | haxelib set hxcpp 3.4.64 && apt-get install -y lib32z1 lib32ncurses5 lib32stdc++6
 # Cleaning
 RUN apt-get clean && apt-get autoremove &&  haxelib remove lime-samples
 # Create and go to workspace
